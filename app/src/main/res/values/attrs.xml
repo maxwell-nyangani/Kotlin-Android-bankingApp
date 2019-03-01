@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LoginKeyPadButton">
+        <attr name="digitColor" format="color"/>
+        <attr name="alphaColor" format="color"/>
+        <attr name="defaultBgColor" format="color"/>
+        <attr name="pressedBgColor" format="color"/>
+        <attr name="digitValue" format="string"/>
+        <attr name="alphaValue" format="string"/>
+    </declare-styleable>
+</resources>
