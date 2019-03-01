@@ -7,6 +7,12 @@
     <string name="next">Next</string>
     <string name="got_it">Got it!</string>
     <string name="log_in">Log in</string>
+    <string name="log_out">Log out</string>
+    <string name="accounts">Accounts</string>
+    <string name="self_service">Self service</string>
+    <string name="bank_mail">Bank mail</string>
+    <string name="settings">Settings</string>
+    <string name="task_list">Task list</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

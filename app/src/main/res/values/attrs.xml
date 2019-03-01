@@ -8,4 +8,19 @@
         <attr name="digitValue" format="string"/>
         <attr name="alphaValue" format="string"/>
     </declare-styleable>
+    <declare-styleable name="BadgedButton">
+        <attr name="bgSelected" format="integer"/>
+        <attr name="bgUnselected" format="integer"/>
+        <attr name="text" format="string"/>
+        <attr name="textColorSelected" format="color"/>
+        <attr name="textColorUnselected" format="color"/>
+        <attr name="badgeBackground" format="integer"/>
+        <attr name="badgeValueColor" format="color"/>
+        <attr name="badgeValue" format="string"/>
+        <attr name="badgeVisibility" format="boolean"/>
+        <attr name="textVisibility" format="boolean"/>
+        <attr name="imageVisibility" format="boolean"/>
+        <attr name="buttonIconSelected" format="integer"/>
+        <attr name="buttonIconUnselected" format="integer"/>
+    </declare-styleable>
 </resources>

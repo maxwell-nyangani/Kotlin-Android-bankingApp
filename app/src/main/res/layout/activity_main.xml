@@ -151,19 +151,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
             <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" app:srcCompat="@drawable/ic_fingerprint_black_24dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" app:srcCompat="@drawable/ic_fingerprint_black_24dp"
                     android:id="@+id/fingerPrintLoginImgVw" android:layout_weight="1"
-                    android:background="@color/colorLightGrey"/>
+                    android:background="@color/colorLightGrey" android:layout_gravity="center_vertical"/>
             <com.nyanx.max.maxbankieren.customViews.LoginKeypadButton
                     app:digitValue="0"
                     app:alphaValue=""
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/pinButton0"/>
             <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" app:srcCompat="@drawable/ic_backspace_black_24dp"
-                    android:layout_weight="1" android:id="@+id/loginKeypadBackBtnImgVw"/>
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" app:srcCompat="@drawable/ic_backspace_black_24dp"
+                    android:layout_weight="1" android:id="@+id/loginKeypadBackBtnImgVw"
+                    android:layout_gravity="center_vertical"/>
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
     <ImageView
