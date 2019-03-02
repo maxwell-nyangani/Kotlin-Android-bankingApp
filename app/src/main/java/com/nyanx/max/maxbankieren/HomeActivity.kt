@@ -1,15 +1,20 @@
 package com.nyanx.max.maxbankieren
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import android.support.v4.util.Pair
 import android.view.View
 import com.nyanx.max.maxbankieren.customViews.BadgedButton
 import com.nyanx.max.maxbankieren.fragments.*
+import com.nyanx.max.maxbankieren.models.AccountModel
 import kotlinx.android.synthetic.main.activity_home.*
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), AccountsFragment.AccountsFragmentEventHandlers {
+    private val accountDetailsRequestCode: Int = 1
 
     inner class HomeActivityUI(
         private var layout: View,
@@ -112,4 +117,14 @@ class HomeActivity : AppCompatActivity() {
 
         ui = HomeActivityUI(findViewById(R.id.activity_home),AccountsFragment(), SelfServiceFragment(), BankMailFragment(), SettingsFragment(), TaskListFragment())
     }
+
+    override fun onLaunchAccountDetailsActivity(v: View, accountData: AccountModel) {
+        val accountDetailsIntent = Intent(this, CreditCardActivity::class.java)
+        accountDetailsIntent.putExtra("KEY","value")
+        var p1: Pair<View, String> = Pair.create(homeTabBodyContainerFrmLyt,"fiveItemContainer")
+        var p2: Pair<View, String> = Pair.create(v,"accountItemCnstLyt")
+        //var p3:Pair<View, String> = Pair.create(loginKeyPadContainerCnstLyt,"testCnstLyt")
+        val options = ActivityOptionsCompat
+            .makeSceneTransitionAnimation(this, p1,p2)
+        startActivityForResult(accountDetailsIntent,accountDetailsRequestCode,options.toBundle())    }
 }

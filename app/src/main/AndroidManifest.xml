@@ -36,7 +36,9 @@
         </activity>
         <activity android:name=".PersonalAccountActivity">
         </activity>
-        <activity android:name=".CreditCardActivity">
+        <activity
+                android:name=".CreditCardActivity"
+                android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".TransferActivity">
         </activity>

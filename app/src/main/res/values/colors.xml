@@ -8,4 +8,5 @@
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorLightestGrey">#dedede</color>
+    <color name="colorCallToActionButton">#fdd830</color>
 </resources>

@@ -23,6 +23,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"/>
         <ImageView
                 android:layout_width="wrap_content"
+                android:transitionName="testImage"
                 android:layout_height="wrap_content" app:srcCompat="@drawable/ic_contact_phone_24dp"
                 android:id="@+id/imageView6" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
@@ -31,6 +32,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"/>
         <TextView
                 android:text="@string/log_out"
+                android:transitionName="testCnstLyt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView6" android:textStyle="bold"
@@ -43,6 +45,7 @@
             android:orientation="horizontal"
             android:layout_width="0dp"
             android:layout_height="60dp"
+            android:transitionName="fiveItemContainer"
             android:background="@color/colorLightestGrey"
             app:layout_constraintTop_toBottomOf="@+id/homeHeaderContainerCnstLyt"
             app:layout_constraintStart_toStartOf="parent"

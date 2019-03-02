@@ -1,5 +1,7 @@
 package com.nyanx.max.maxbankieren
 
+import android.app.Activity
+import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
@@ -11,6 +13,10 @@ import android.view.View
 import android.widget.Toast
 import com.nyanx.max.maxbankieren.customViews.LoginKeypadButton
 import kotlinx.android.synthetic.main.activity_main.*
+import android.support.v4.app.ActivityOptionsCompat
+import android.support.v4.util.Pair
+import android.view.Window
+
 
 class MainActivity : AppCompatActivity() {
     private  var isColdLaunch:Boolean = true
@@ -37,11 +43,11 @@ class MainActivity : AppCompatActivity() {
             //set triggers for the keypad buttons
 
             generalInfoImgVw.setOnClickListener{v ->
-                this.goToGeneralInfoActivity()
+                goToGeneralInfoActivity()
             }
 
             scanQRCodeImgVw.setOnClickListener{v ->
-                this.goToScanQRCodeActivity()
+                goToScanQRCodeActivity()
             }
             pinButton0.setEventHandlers(this)
             pinButton1.setEventHandlers(this)
@@ -65,30 +71,25 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        fun goToHomeActivity(){
-            val homeIntent = Intent(applicationContext, HomeActivity::class.java)
-            homeIntent.putExtra("KEY","value")
-            startActivityForResult(homeIntent,homeRequestCode)
-        }
-
-        fun goToGeneralInfoActivity(){
-            val generalInfoIntent = Intent(applicationContext, GeneralInfoActivity::class.java)
-            generalInfoIntent.putExtra("KEY","value")
-            startActivityForResult(generalInfoIntent,generalInfoRequestCode)
-        }
-
-        fun goToScanQRCodeActivity(){
-            val scanQRCodeIntent = Intent(applicationContext, QRCodeScannerActivity::class.java)
-            scanQRCodeIntent.putExtra("KEY","value")
-            startActivityForResult(scanQRCodeIntent,scanQRCodeRequestCode)
-        }
-
         fun showPlaceFingerOnScannerMessage(){
-            val builder = AlertDialog.Builder(applicationContext)
+
+            /*var dialogs = Dialog(this@MainActivity)
+            dialogs.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialogs.setCancelable(false)
+            dialogs.setContentView(R.layout.ui_fingerprint_prompt)
+
+            *//*yesBtn.setOnClickListener {
+                dialogs.dismiss()
+            }
+            noBtn.setOnClickListener { dialogs.dismiss() }*//*
+            dialogs.show()*/
+
+
+            val builder = AlertDialog.Builder(this@MainActivity)
             //builder.setTitle(getString(R.string.enter_your_complaint));
 
             // Set up the reportAbuseTextEdtTxt
-            val areYouSureUI = View.inflate(applicationContext, R.layout.ui_fingerprint_prompt, null)
+            val areYouSureUI = View.inflate(this@MainActivity, R.layout.ui_fingerprint_prompt, null)
             builder.setView(areYouSureUI)
 
             // Set up the buttons
@@ -99,18 +100,29 @@ class MainActivity : AppCompatActivity() {
             }
             builder.setNegativeButton(
                 getString(R.string.cancel)
-            ) { dialog, which -> dialog.cancel() }
-            /*var warningDialog = builder.create()
+            ) { dialog, which -> run {
+                dialog.cancel()
+                showKeyPad()
+            } }
+            var warningDialog = builder.create()
             warningDialog.setCanceledOnTouchOutside(false)
+            warningDialog.setCancelable(false)
+            hideKeyPad()
             warningDialog.show()
             //Overriding the handler immediately after show is probably a better approach than OnShowListener as described below
-            warningDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(
-                View.OnClickListener {
-                    warningDialog.dismiss()
-                })*/
-
-            builder.show()
+            warningDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener{v ->
+                warningDialog.dismiss()
+                logUserIn()
+            }
         }
+
+        private fun showKeyPad() {
+            loginKeyPadContainerCnstLyt.animate().setDuration(300).translationY(0f)
+        }
+        private fun hideKeyPad() {
+            loginKeyPadContainerCnstLyt.animate().setDuration(300).translationY(1000f)
+        }
+
 
         fun undoPinEntry(){
             when(entredDigitCount){
@@ -197,6 +209,7 @@ class MainActivity : AppCompatActivity() {
             pinDigit3Musk.idle()
             pinDigit4Musk.idle()
             pinDigit5Musk.idle()
+            showKeyPad()
         }
     }
 
@@ -228,6 +241,7 @@ class MainActivity : AppCompatActivity() {
                     //launch the tutorial if the user is first time
                     val tutorialIntent = Intent(applicationContext, OnBoardingActivity::class.java)
                     startActivity(tutorialIntent)
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
                 }
             }
             2->{//HomeActivity finished probably a logout happened
@@ -241,4 +255,29 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    fun goToHomeActivity(){
+        val homeIntent = Intent(this, HomeActivity::class.java)
+        homeIntent.putExtra("KEY","value")
+        var p1:Pair<View, String> = Pair.create(linearLayout4,"fiveItemContainer")
+        var p2:Pair<View, String> = Pair.create(imageView3,"testImage")
+        //var p3:Pair<View, String> = Pair.create(loginKeyPadContainerCnstLyt,"testCnstLyt")
+        val options = ActivityOptionsCompat
+            .makeSceneTransitionAnimation(this, p1,p2)
+        startActivityForResult(homeIntent,homeRequestCode,options.toBundle())
+    }
+
+    fun goToGeneralInfoActivity(){
+        val generalInfoIntent = Intent(this, GeneralInfoActivity::class.java)
+        generalInfoIntent.putExtra("KEY","value")
+        startActivityForResult(generalInfoIntent,generalInfoRequestCode)
+    }
+
+    fun goToScanQRCodeActivity(){
+        val scanQRCodeIntent = Intent(this, QRCodeScannerActivity::class.java)
+        scanQRCodeIntent.putExtra("KEY","value")
+        startActivityForResult(scanQRCodeIntent,scanQRCodeRequestCode)
+    }
+
+
 }

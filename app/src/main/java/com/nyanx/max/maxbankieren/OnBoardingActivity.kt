@@ -64,4 +64,9 @@ class OnBoardingActivity : AppCompatActivity() {
 
         ui = OnBoardingActivityUI(findViewById(R.id.onboardingActivityUI),pages)
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
+    }
 }
