@@ -42,19 +42,22 @@ class MuskedDigit @JvmOverloads constructor(
     }
 
     fun focused(){
-        dotImgVw.animate().scaleY(1f).scaleX(1f)
-        sliderCnstLyt.animate().scaleY(1f)
+        dotImgVw.animate().setDuration(300).scaleY(1f).scaleX(1f)
+        dotImgVw.drawable.setTint(context.getColor(R.color.colorGrey))
+        sliderCnstLyt.animate().setDuration(200).scaleY(1f)
         sliderCnstLyt.visibility = View.VISIBLE
     }
     fun filled(): Boolean {
-        dotImgVw.animate().scaleY(2f).scaleX(2f)
+        dotImgVw.drawable.setTint(context.getColor(R.color.colorPrimary))
+        dotImgVw.animate().setDuration(300).scaleY(2f).scaleX(2f)
         sliderCnstLyt.visibility = View.VISIBLE
-        sliderCnstLyt.animate().setDuration(300).scaleY(100f)
+        sliderCnstLyt.animate().setDuration(200).scaleY(100f)
         return true
     }
     fun idle(){
-        dotImgVw.animate().scaleY(1f).scaleX(1f)
+        dotImgVw.animate().setDuration(300).scaleY(1f).scaleX(1f)
+        dotImgVw.drawable.setTint(context.getColor(R.color.colorGrey))
         sliderCnstLyt.visibility = View.GONE
-        sliderCnstLyt.animate().setDuration(300).scaleY(1f)
+        sliderCnstLyt.animate().setDuration(200).scaleY(1f)
     }
 }

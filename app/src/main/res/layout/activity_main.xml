@@ -156,7 +156,8 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp" app:srcCompat="@drawable/ic_fingerprint_black_24dp"
                     android:id="@+id/fingerPrintLoginImgVw" android:layout_weight="1"
-                    android:background="@color/colorLightGrey" android:layout_gravity="center_vertical"/>
+                    android:layout_gravity="center_vertical"
+                    android:tint="@color/colorPrimary"/>
             <com.nyanx.max.maxbankieren.customViews.LoginKeypadButton
                     app:digitValue="0"
                     app:alphaValue=""
@@ -166,12 +167,12 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp" app:srcCompat="@drawable/ic_backspace_black_24dp"
                     android:layout_weight="1" android:id="@+id/loginKeypadBackBtnImgVw"
-                    android:layout_gravity="center_vertical"/>
+                    android:layout_gravity="center_vertical" android:tint="@color/colorPrimary"/>
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
     <ImageView
             android:layout_width="30dp"
-            android:layout_height="30dp" app:srcCompat="@mipmap/ic_launcher"
+            android:layout_height="30dp" app:srcCompat="@drawable/maxbank_logo"
             android:id="@+id/imageView3"
             android:transitionName="testImage"
             app:layout_constraintStart_toStartOf="parent"

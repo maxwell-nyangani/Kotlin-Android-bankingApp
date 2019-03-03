@@ -16,6 +16,19 @@
     <string name="transfer">Transfer</string>
     <string name="exp_break_down">Break down of your expenditure.</string>
     <string name="total_balance">Total balance</string>
+    <string name="request_new_product">Request new product</string>
+    <string name="personal">Personal</string>
+    <string name="my_profile_and_address">My profile and address book</string>
+    <string name="manage_account_overview">Manage account overview</string>
+    <string name="order_and_name_accounts">Order and name of your accounts</string>
+    <string name="login_confirm">Login and confirm</string>
+    <string name="id_code_daily_limit">Identification code, daily limit and fingerprint</string>
+    <string name="debit_card_and_wearables">Debit card and wearables</string>
+    <string name="blocking_limits_usage">Blocking, card limits and usage abroad</string>
+    <string name="notifications">Notifications</string>
+    <string name="important_notifications">Important notifications about banking</string>
+    <string name="app">App</string>
+    <string name="language_device_reg">Language and device registrations</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

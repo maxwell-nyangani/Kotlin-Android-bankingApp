@@ -8,6 +8,11 @@
         <attr name="digitValue" format="string"/>
         <attr name="alphaValue" format="string"/>
     </declare-styleable>
+    <declare-styleable name="MainSettingItem">
+        <attr name="settingIcon" format="integer"/>
+        <attr name="settingTitle" format="string"/>
+        <attr name="settingDescription" format="string"/>
+    </declare-styleable>
     <declare-styleable name="BadgedButton">
         <attr name="bgSelected" format="integer"/>
         <attr name="bgUnselected" format="integer"/>

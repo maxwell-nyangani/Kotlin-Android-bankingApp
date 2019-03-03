@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".fragments.SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Settings frag"/>
 
-</FrameLayout>
+    <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <com.nyanx.max.maxbankieren.customViews.MainSettingItem
+                    android:id="@+id/personalMnSetnItm"
+                    app:settingIcon="@drawable/ic_person_black_24dp"
+                    app:settingTitle="@string/personal"
+                    app:settingDescription="@string/my_profile_and_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            <com.nyanx.max.maxbankieren.customViews.MainSettingItem
+                    android:id="@+id/manageAccMnSetnItm"
+                    app:settingIcon="@drawable/ic_list_black_24dp"
+                    app:settingTitle="@string/manage_account_overview"
+                    app:settingDescription="@string/order_and_name_accounts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            <com.nyanx.max.maxbankieren.customViews.MainSettingItem
+                    android:id="@+id/loginConfMnSetnItm"
+                    app:settingIcon="@drawable/ic_security_black_24dp"
+                    app:settingTitle="@string/login_confirm"
+                    app:settingDescription="@string/id_code_daily_limit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            <com.nyanx.max.maxbankieren.customViews.MainSettingItem
+                    android:id="@+id/debitCardWearablesMnSetnItm"
+                    app:settingIcon="@drawable/ic_credit_card_black_24dp"
+                    app:settingTitle="@string/debit_card_and_wearables"
+                    app:settingDescription="@string/blocking_limits_usage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            <com.nyanx.max.maxbankieren.customViews.MainSettingItem
+                    android:id="@+id/notificationsMnSetnItm"
+                    app:settingIcon="@drawable/ic_notifications_active_black_24dp"
+                    app:settingTitle="@string/notifications"
+                    app:settingDescription="@string/important_notifications"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" tools:layout_editor_absoluteY="97dp"
+                    tools:layout_editor_absoluteX="0dp"/>
+            <com.nyanx.max.maxbankieren.customViews.MainSettingItem
+                    android:id="@+id/appMnSetnItm"
+                    app:settingIcon="@drawable/ic_important_devices_black_24dp"
+                    app:settingTitle="@string/app"
+                    app:settingDescription="@string/language_device_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

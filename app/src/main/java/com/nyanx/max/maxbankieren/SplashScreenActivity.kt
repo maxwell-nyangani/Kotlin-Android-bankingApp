@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 
 class SplashScreenActivity : AppCompatActivity() {
-    private val splashScreenDuration :Long = 3000
+    private val splashScreenDuration :Long = 1000
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)

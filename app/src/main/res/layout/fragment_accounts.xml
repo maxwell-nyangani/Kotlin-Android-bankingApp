@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/accountsTransferBtn" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="3dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:textAllCaps="false" android:background="@color/colorCallToActionButton"/>
     <View
             android:id="@+id/divider"
