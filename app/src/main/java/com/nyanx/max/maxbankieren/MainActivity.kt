@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
             //Overriding the handler immediately after show is probably a better approach than OnShowListener as described below
             warningDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener{v ->
                 warningDialog.dismiss()
-                logUserIn()
+                //logUserIn()
             }
         }
 

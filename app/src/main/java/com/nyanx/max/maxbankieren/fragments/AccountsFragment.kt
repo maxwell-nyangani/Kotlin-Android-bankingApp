@@ -24,7 +24,9 @@ import android.support.v7.widget.DividerItemDecoration
 import android.util.Log
 import com.nyanx.max.maxbankieren.CreditCardActivity
 import android.support.v4.util.Pair
+import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_home.*
+import org.json.JSONObject
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -41,7 +43,7 @@ class AccountsFragment : Fragment() {
     interface AccountsFragmentEventHandlers{
         fun onLaunchAccountDetailsActivity(v:View,accountData:AccountModel)
     }
-
+    private var accountsDataObservable:Observable<AccountModel> = Observable.fromArray()
     inner class AccountsFragmentUI(private  var layout:View) : AccountListAdapter.AccountListItemEventHandlers {
         override fun onAccountListItemClicked(view: View, position: Int) {
             gotoAccountDetails(view,dataList[position])
