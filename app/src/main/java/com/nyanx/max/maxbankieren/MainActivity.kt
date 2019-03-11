@@ -112,6 +112,7 @@ class MainActivity : AppCompatActivity() {
             //Overriding the handler immediately after show is probably a better approach than OnShowListener as described below
             warningDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener{v ->
                 warningDialog.dismiss()
+                showKeyPad()
                 //logUserIn()
             }
         }
@@ -234,7 +235,7 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         when(requestCode){
             1->{ //SplashScreenActivity  finished
-                if (/*localStorage.getString("isFirstUser",null)==null*/ true) {
+                if (/*localStorage.getString("isFirstUser",null)==null*/ false) {
                     //mark the user as not first use user anymore
                     localStorage.edit().putString("isFirstUser", "no").apply()
 
